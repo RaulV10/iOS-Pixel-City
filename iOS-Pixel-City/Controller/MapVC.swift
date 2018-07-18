@@ -34,6 +34,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     var collectionView: UICollectionView?
     
     var imageUrlArray = [String]()
+    var imagesArray = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +75,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc func animateViewDown() {
+        cancelAllSessions()
         mapViewBottomConstraint.constant = 0
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
@@ -143,6 +145,7 @@ extension MapVC: MKMapViewDelegate {
         removePin()
         removeSpinner()
         removeProgressLabel()
+        cancelAllSessions()
         
         animateViewUp()
         addSwipe()
@@ -159,8 +162,13 @@ extension MapVC: MKMapViewDelegate {
         let coordinateRegion = MKCoordinateRegion(center: touchCoordinate, latitudinalMeters: regionRadius * 2.0, longitudinalMeters: regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
         
-        retreiveUrls(forAnnotation: annotation) { (true) in
-            print(self.imageUrlArray)
+        retreiveUrls(forAnnotation: annotation) { (finished) in
+            if finished {
+                self.retreiveImages(handler: { (finished) in
+                    self.removeSpinner()
+                    self.removeProgressLabel()
+                })
+            }
         }
     }
     
@@ -184,7 +192,29 @@ extension MapVC: MKMapViewDelegate {
             }
             handler(true)
         }
+    }
+    
+    func retreiveImages(handler: @escaping (_ status: Bool) -> ()) {
+        imagesArray = []
         
+        for url in imageUrlArray {
+            Alamofire.request(url).responseImage { (response) in
+                guard let image = response.result.value else { return }
+                self.imagesArray.append(image)
+                self.lblProgress?.text = "\(self.imagesArray.count)/40 IMAGES DOWNLOADED"
+                
+                if self.imagesArray.count == self.imageUrlArray.count {
+                    handler(true)
+                }
+            }
+        }
+    }
+    
+    func cancelAllSessions() {
+        Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
+            sessionDataTask.forEach({ $0.cancel() })
+            downloadData.forEach({ $0.cancel() })
+        }
     }
     
 }
