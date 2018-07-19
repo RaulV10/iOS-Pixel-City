@@ -12,6 +12,7 @@
 		B750903720FFC68300DB34BF /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750903620FFC68300DB34BF /* PhotoCell.swift */; };
 		B750903920FFD1D500DB34BF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750903820FFD1D500DB34BF /* Constants.swift */; };
 		B769EB7F20FFFAD900A31A56 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B769EB7E20FFFAD900A31A56 /* Utilities.swift */; };
+		B769EB8121000E7B00A31A56 /* PopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B769EB8021000E7B00A31A56 /* PopVC.swift */; };
 		B7C09F1620FEB907000AE0E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C09F1520FEB907000AE0E4 /* AppDelegate.swift */; };
 		B7C09F1820FEB907000AE0E4 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C09F1720FEB907000AE0E4 /* MapVC.swift */; };
 		B7C09F1B20FEB907000AE0E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7C09F1920FEB907000AE0E4 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		B750903620FFC68300DB34BF /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		B750903820FFD1D500DB34BF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B769EB7E20FFFAD900A31A56 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		B769EB8021000E7B00A31A56 /* PopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopVC.swift; sourceTree = "<group>"; };
 		B7C09F1220FEB907000AE0E4 /* iOS-Pixel-City.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Pixel-City.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7C09F1520FEB907000AE0E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7C09F1720FEB907000AE0E4 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				B7C09F1720FEB907000AE0E4 /* MapVC.swift */,
+				B769EB8021000E7B00A31A56 /* PopVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			files = (
 				B769EB7F20FFFAD900A31A56 /* Utilities.swift in Sources */,
 				B750903920FFD1D500DB34BF /* Constants.swift in Sources */,
+				B769EB8121000E7B00A31A56 /* PopVC.swift in Sources */,
 				B750903720FFC68300DB34BF /* PhotoCell.swift in Sources */,
 				B7C09F1820FEB907000AE0E4 /* MapVC.swift in Sources */,
 				B750903520FFAE8600DB34BF /* DroppablePin.swift in Sources */,
